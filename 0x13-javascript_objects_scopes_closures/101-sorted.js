@@ -1,13 +1,17 @@
 #!/usr/bin/node
 
-const dict = require('./101-data.js').dict;
-const newDict = {}
+// function that returns the number of occurrences in a list
 
-Object.keys(dict).map(function (key) {
-  if (!Array.isArray(newDict[dict[key]])) {
-    newDict[dict[key]] = [];
-  }
-  newDict[dict[key]].push(key);
-});
 
-console.log(newDict);
+
+const originalList = require('./100-data').list;
+
+console.log(originalList);
+
+const mappedList = originalList.map (function (e, index) {
+
+  return (e * index);
+
+  });
+
+  console.log(mappedList);
