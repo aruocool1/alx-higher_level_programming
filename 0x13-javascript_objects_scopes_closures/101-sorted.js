@@ -1,17 +1,33 @@
 #!/usr/bin/node
 
-// function that returns the number of occurrences in a list
+const dict = require('./101-data').dict;
 
 
 
-const originalList = require('./100-data').list;
+const totalist = Object.entries(dict);
 
-console.log(originalList);
+const vals = Object.values(dict);
 
-const mappedList = originalList.map (function (e, index) {
+const valsUniq = [...new Set(vals)];
 
-  return (e * index);
+const newDict = {};
 
-  });
+for (const j in valsUniq) {
 
-  console.log(mappedList);
+  const list = [];
+
+    for (const k in totalist) {
+
+        if (totalist[k][1] === valsUniq[j]) {
+
+	      list.unshift(totalist[k][0]);
+
+	          }
+
+		    }
+
+		      newDict[valsUniq[j]] = list;
+
+		      }
+
+		      console.log(newDict);
